@@ -1,26 +1,22 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// https://astro.build/config
 export default defineConfig({
-	integrations: [
-		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
-			sidebar: [
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
-			],
-		}),
-	],
+  integrations:[
+    starlight({
+      title: 'Tech Blog Lab',
+      customCss: [],
+      // Génération automatique du menu
+      sidebar:[
+        {
+          label: 'Tutoriels (Français)',
+          autogenerate: { directory: 'fr/guides' },
+        },
+        {
+          label: 'Tutorials (English)',
+          autogenerate: { directory: 'en/guides' },
+        }
+      ],
+    }),
+  ],
 });
