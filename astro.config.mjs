@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
+  site: 'https://tech-blog-lab.vercel.app',
   integrations:[
     starlight({
       title: 'Tech Blog Lab',
