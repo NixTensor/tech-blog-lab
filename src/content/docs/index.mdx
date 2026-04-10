@@ -1,25 +1,49 @@
 ---
-title: Bienvenue sur Tech Blog Lab
-description: Les meilleurs tutoriels B2B et automatisations pour développeurs.
+title: Tech Blog Lab
+description: Le labo des automatisations B2B (Shopify, Stripe, Airtable).
 template: splash
 hero:
-  tagline: Découvrez comment connecter et automatiser vos outils préférés (Stripe, Supabase, Make, Datadog...) grâce à nos guides techniques validés.
+  tagline: Guides techniques pour développeurs et agences. Automatisez vos workflows Shopify, Stripe et bien plus.
   actions:
-    - text: Lire le 1er Tutoriel
+    - text: Explorer tous les guides
       link: /fr/guides/tutoriel_stripe_airtable/
       icon: right-arrow
       variant: primary
+    - text: Suivre sur GitHub
+      link: https://github.com/VOTRE_PSEUDO/tech-blog-lab
+      icon: external
+      variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Ce que vous trouverez ici
-
-<CardGrid stagger>
-	<Card title="Code Validé" icon="check">
-		Tous nos scripts et automatisations sont testés localement avant publication.
-	</Card>
-	<Card title="Gains de temps" icon="rocket">
-		Ne perdez plus des heures à lire les documentations d'API. On le fait pour vous.
-	</Card>
+## 🚀 Derniers Tutoriels Shopify
+<CardGrid>
+  <LinkCard
+    title="Shopify + Airtable"
+    description="Synchronisez votre inventaire en temps réel via JavaScript."
+    href="/fr/guides/synchroniser-inventaire-shopify-airtable/"
+  />
+  <LinkCard
+    title="Stripe + Airtable"
+    description="Automatisez la facturation et le suivi des paiements."
+    href="/fr/guides/tutoriel_stripe_airtable/"
+  />
 </CardGrid>
+
+## 🛠️ Par Catégories
+<CardGrid stagger>
+  <Card title="E-commerce (Shopify)" icon="shopping-cart">
+    Optimisez votre boutique avec l'API GraphQL et les webhooks.
+  </Card>
+  <Card title="Paiements (Stripe)" icon="seti:db">
+    Gérez les abonnements, les factures et les flux de paiement.
+  </Card>
+  <Card title="Data (Airtable/Notion)" icon="list-format">
+    Centralisez vos données et automatisez vos rapports.
+  </Card>
+</CardGrid>
+
+:::tip[Nouveau ici ?]
+Tous nos tutoriels incluent le code source testé sur Linux et les liens vers les documentations officielles.
+:::
