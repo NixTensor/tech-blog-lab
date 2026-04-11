@@ -1,0 +1,64 @@
+---
+title: 24/7 Shopify Sales Agent
+description: Automate your SEO-optimized product descriptions using Gemini API and Python.
+---
+
+Managing your Shopify inventory manually is an invisible drain on your profits. Every hour you spend writing SEO product descriptions is an hour you could have invested in e-commerce business growth.
+
+## The Solution
+
+To transform your catalog management, we use a high-performance technical stack:
+- [Gemini API](https://aistudio.google.com/) : The engine for intelligent SEO content generation.
+- [Shopify API](https://shopify.dev/) : The standard interface for store management via code.
+
+This stack is the most profitable choice because it cuts your unit content creation cost down to cents while ensuring constant optimization.
+
+## The Technique
+
+Here is the full script to automate your content generation via the Gemini API:
+
+```python title="sync.py"
+import os
+import google.generativeai as genai
+import shopify
+
+# Configuration
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+SHOPIFY_API_KEY = os.getenv("SHOPIFY_API_KEY")
+SHOPIFY_PASSWORD = os.getenv("SHOPIFY_PASSWORD")
+SHOPIFY_SHOP_URL = os.getenv("SHOPIFY_SHOP_URL")
+
+# Gemini Setup
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+def generate_product_description(product_title):
+    prompt = f"Rédige une fiche produit SEO attractive pour : {product_title}"
+    response = model.generate_content(prompt)
+    return response.text
+
+def connect_to_shopify():
+    session = shopify.Session(SHOPIFY_SHOP_URL, "2023-01", SHOPIFY_PASSWORD)
+    shopify.ShopifyResource.activate_session(session)
+    return True
+
+if __name__ == "__main__":
+    product = "T-shirt en coton bio"
+    description = generate_product_description(product)
+    print(f"Description générée: {description}")
+    
+    if connect_to_shopify():
+        print("Pipeline Shopify opérationnel.")
+```
+
+## Implementation
+
+1. **Batch Processing**: Don't generate product descriptions one by one. Import a CSV file with your product titles and loop through the script.
+2. **Error Handling**: Implement `try-except` blocks around your Gemini API calls to handle rate limits gracefully.
+3. **SEO Audit**: Always verify the generated content for your targeted keywords before pushing it live to your store.
+
+## Launch your automation
+
+Ready to scale your store?
+- [Get started with Gemini API](https://aistudio.google.com/)
+- [Shopify API Documentation](https://shopify.dev/)

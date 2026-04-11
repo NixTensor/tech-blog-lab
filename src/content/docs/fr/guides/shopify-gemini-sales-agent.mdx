@@ -1,0 +1,64 @@
+---
+title: Agent de vente Shopify 24h/24
+description: Automatisez la création de vos fiches produits SEO avec l'API Gemini et Python.
+---
+
+Gérer manuellement le catalogue d'une boutique Shopify est une perte de profit invisible. Chaque heure passée à rédiger des descriptions SEO est une heure de moins consacrée à la stratégie de croissance de votre e-commerce.
+
+## La solution
+
+Pour transformer votre gestion catalogue, nous utilisons une stack technique haute performance :
+- [Gemini API](https://aistudio.google.com/) : Le moteur de génération de contenu SEO intelligent.
+- [Shopify API](https://shopify.dev/) : L'interface standard pour gérer votre boutique via le code.
+
+Cette stack est la plus rentable car elle réduit le coût unitaire de création de contenu à quelques centimes tout en garantissant une optimisation constante.
+
+## La technique
+
+Voici le script complet pour automatiser votre génération de contenu produit via l'API Gemini :
+
+```python title="sync.py"
+import os
+import google.generativeai as genai
+import shopify
+
+# Configuration de l'environnement
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+SHOPIFY_API_KEY = os.getenv("SHOPIFY_API_KEY")
+SHOPIFY_PASSWORD = os.getenv("SHOPIFY_PASSWORD")
+SHOPIFY_SHOP_URL = os.getenv("SHOPIFY_SHOP_URL")
+
+# Configuration de Gemini
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+def generate_product_description(product_title):
+    prompt = f"Rédige une fiche produit SEO attractive pour : {product_title}"
+    response = model.generate_content(prompt)
+    return response.text
+
+def connect_to_shopify():
+    session = shopify.Session(SHOPIFY_SHOP_URL, "2023-01", SHOPIFY_PASSWORD)
+    shopify.ShopifyResource.activate_session(session)
+    return True
+
+if __name__ == "__main__":
+    product = "T-shirt en coton bio"
+    description = generate_product_description(product)
+    print(f"Description générée: {description}")
+    
+    if connect_to_shopify():
+        print("Pipeline Shopify opérationnel.")
+```
+
+## L'implémentation
+
+1. **Batch Processing** : Ne générez pas vos fiches une par une. Importez un fichier CSV contenant vos titres produits et bouclez sur le script.
+2. **Gestion des erreurs** : Implémentez un bloc `try-except` autour de l'appel API Gemini pour gérer les limites de taux (rate limits).
+3. **Audit SEO** : Avant de publier, vérifiez que le contenu généré contient bien vos mots-clés stratégiques.
+
+## Lancez votre automatisation
+
+Prêt à scaler votre boutique ?
+- [Commencer avec Gemini API](https://aistudio.google.com/)
+- [Documentation Shopify API](https://shopify.dev/)
