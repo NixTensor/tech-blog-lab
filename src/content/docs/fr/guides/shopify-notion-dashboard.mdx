@@ -1,0 +1,55 @@
+---
+title: Tableau de bord Shopify + Notion
+description: Centralisez vos ventes Shopify dans Notion pour piloter votre business.
+---
+
+Gérer ses ventes éparpillées entre les rapports [Shopify](https://shopify.pxf.io/ZVrAgR) est une perte de temps. Pour prendre des décisions éclairées, vous avez besoin d'une vision unifiée et personnalisable de votre activité.
+
+## La solution
+
+Pour piloter votre business, nous synchronisons **[Shopify](https://shopify.pxf.io/ZVrAgR)** avec **[Notion](https://www.notion.so)**.
+
+Pourquoi cette stack ?
+- **Vision unifiée** : Centralisez toutes vos données Shopify dans une base Notion dédiée.
+- **Pilotage décisionnel** : Créez vos propres graphiques et vues (calendrier, table, kanban) sur Notion.
+- **Automatisation** : Fini les exports CSV manuels, vos données arrivent en temps réel.
+- **Flexibilité** : Notion est l'outil parfait pour transformer vos données brutes en insights business.
+
+## La technique
+
+Voici un exemple de script pour automatiser l'envoi de vos ventes Shopify vers une base de données Notion :
+
+```python title="sync_sales.py"
+import requests
+
+def get_shopify_sales():
+    # Simulation d'extraction API Shopify
+    return [
+        {"id": 1, "amount": 100.0, "product": "T-shirt"},
+        {"id": 2, "amount": 50.0, "product": "Mug"}
+    ]
+
+def sync_to_notion(sales_data):
+    print(f"Synchronisation de {len(sales_data)} ventes vers Notion...")
+    for sale in sales_data:
+        # Simulation d'envoi POST à Notion API
+        print(f" - Enregistrement de la vente #{sale['id']} ({sale['amount']}€) dans la base Notion.")
+    return True
+
+if __name__ == "__main__":
+    sales = get_shopify_sales()
+    if sync_to_notion(sales):
+        print("Synchronisation réussie.")
+```
+
+## L'implémentation
+
+1. **Base de données Notion** : Créez une base de données avec des propriétés correspondantes à vos ventes (Nom, Montant, Date).
+2. **Webhooks Shopify** : Utilisez les webhooks pour déclencher le script à chaque nouvelle commande.
+3. **Dashboard** : Utilisez les fonctionnalités de calcul (somme, moyenne) de Notion pour créer vos propres indicateurs de performance (KPI).
+
+## Lancez votre pilotage
+
+Libérez votre temps et prenez le contrôle :
+- [Commencez avec Shopify](https://shopify.pxf.io/ZVrAgR)
+- [Documentation Notion API](https://developers.notion.com/)

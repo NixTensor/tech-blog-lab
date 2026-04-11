@@ -1,0 +1,55 @@
+---
+title: Shopify + Notion Dashboard
+description: Centralize your Shopify sales in Notion to drive business performance.
+---
+
+Managing your sales scattered across [Shopify](https://shopify.pxf.io/ZVrAgR) reports is a massive waste of time. To make informed decisions, you need a unified and customizable view of your business activity.
+
+## The Solution
+
+To drive your business, we synchronize **[Shopify](https://shopify.pxf.io/ZVrAgR)** with **[Notion](https://www.notion.so)**.
+
+Why this stack?
+- **Unified Vision**: Centralize all your Shopify data in a dedicated Notion database.
+- **Decision-Making**: Create your own charts and views (calendar, table, kanban) within Notion.
+- **Automation**: Say goodbye to manual CSV exports; your data arrives in real-time.
+- **Flexibility**: Notion is the perfect tool for turning raw data into actionable business insights.
+
+## The Technique
+
+Here is an example script to automate sending your Shopify sales data to a Notion database:
+
+```python title="sync_sales.py"
+import requests
+
+def get_shopify_sales():
+    # Simulation d'extraction API Shopify
+    return [
+        {"id": 1, "amount": 100.0, "product": "T-shirt"},
+        {"id": 2, "amount": 50.0, "product": "Mug"}
+    ]
+
+def sync_to_notion(sales_data):
+    print(f"Synchronisation de {len(sales_data)} ventes vers Notion...")
+    for sale in sales_data:
+        # Simulation d'envoi POST à Notion API
+        print(f" - Enregistrement de la vente #{sale['id']} ({sale['amount']}€) dans la base Notion.")
+    return True
+
+if __name__ == "__main__":
+    sales = get_shopify_sales()
+    if sync_to_notion(sales):
+        print("Synchronisation réussie.")
+```
+
+## Implementation
+
+1. **Notion Database**: Create a database with properties that match your sales data (Product Name, Amount, Date).
+2. **Shopify Webhooks**: Use webhooks to trigger the script on every new order.
+3. **Dashboard**: Use Notion's built-in calculation features (sum, average) to create your own KPIs.
+
+## Start Driving Performance
+
+Free up your time and take control of your e-commerce data:
+- [Start with Shopify](https://shopify.pxf.io/ZVrAgR)
+- [Notion API Documentation](https://developers.notion.com/)
