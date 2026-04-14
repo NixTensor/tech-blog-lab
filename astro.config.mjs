@@ -18,6 +18,9 @@ export default defineConfig({
           autogenerate: { directory: 'en/guides' },
         }
       ],
+      components: {
+        Footer: './src/components/Analytics.astro',
+      },
     }),
   ],
 });
