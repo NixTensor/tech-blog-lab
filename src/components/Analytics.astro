@@ -1,0 +1,10 @@
+---
+import StarlightFooter from '@astrojs/starlight/components/Footer.astro';
+import VercelAnalytics from '@vercel/analytics/astro';
+---
+
+{/* On affiche le footer normal de Starlight */}
+<StarlightFooter {...Astro.props} />
+
+{/* On injecte le script de statistiques Vercel */}
+<VercelAnalytics />
